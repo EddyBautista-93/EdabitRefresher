@@ -52,10 +52,23 @@ namespace Edabit
            return arr.Sum(i=>Math.Abs(i));
         }
 
+        public static long CalculateExponent(long number, long exponent)
+        {
+            //long powerOfResult = number;
+            //for(int i = 0; i < exponent - 1 ; i++)
+            //{
+            //powerOfResult = number * powerOfResult;
+            //}
+            //return powerOfResult
+            //or
+ 
+            return (long) Math.Pow(number, exponent);
+        }
+
+
         static void Main(string[] args)
         {
-           
-
+            
         }
     }
 }
