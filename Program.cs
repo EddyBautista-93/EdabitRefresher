@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Edabit
@@ -63,6 +64,17 @@ namespace Edabit
             //or
  
             return (long) Math.Pow(number, exponent);
+        }
+
+        public static int[] MultiplyByLength(int[] arr)
+        {
+            List<int> resultArray = new List<int>();
+            int timesByLength = arr.Length;
+            foreach(int x in arr)
+            {
+                resultArray.Add(x * timesByLength);
+            }
+            return resultArray.ToArray();
         }
 
 
