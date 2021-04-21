@@ -81,13 +81,34 @@ namespace Edabit
         // - hamming distance measures the min number of substitustions required to change one string into the other, 
         //   the Hmadding distance between the equal length netweem twp string of equal length is the number of postions corresponding symbols are
         //   different. 
-        public static int HammingDistance(string str1, string str2)
-        {
-            int distance = str1.ToCharArray()
-                           .Zip(str2.ToCharArray(), (c1, c2) => new(c1, c2))
-                           .Count(m => m.c1 != m.c2);
+        // public static int HammingDistance(string str1, string str2)
+        // {
+        //     int distance = str1.ToCharArray()
+        //                    .Zip(str2.ToCharArray(), (c1, c2) => new(c1, c2))
+        //                    .Count(m => m.c1 != m.c2);
+        // 
+        //     return distance;
+        // }
 
-            return distance;
+        public static string High(string s)
+        {
+            var words = s.Split();
+
+            var lengths = new List<int>();
+            foreach (string word in words)
+            {
+                int wordScore = 0;
+                foreach (char c in word)
+                {
+                    wordScore += (int)c - 'a' + 1; // implicit converting char to integer by substracting one from other
+                                                   // a - a = 0      b - a = 1 etc
+                }
+                lengths.Add(wordScore);
+            }
+
+            return words[lengths.IndexOf(lengths.Max())];
+
+
         }
 
 
